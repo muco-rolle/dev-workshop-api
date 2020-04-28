@@ -22,7 +22,11 @@
         "experimentalDecorators": true,
         "skipLibCheck": true,
         "baseUrl": ".",
-        "rootDir": "src"
+        "paths": {
+            "@config": ["src/config/index.ts"],
+            "@utils": ["src/utils/index.ts"],
+            "@types": ["src/types/index.ts"]
+        }
     },
     "exclude": ["node_modules"],
     "include": ["./src/**/*.tsx", "./src/**/*.ts"]
