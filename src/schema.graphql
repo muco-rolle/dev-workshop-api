@@ -29,6 +29,7 @@ type LoginType {
 type Mutation {
   signup(user: SignupInput!): UserType!
   activateAccount(code: String!): ActivateAccountType!
+  login(user: LoginInput!): LoginType!
 }
 
 type Project {
@@ -43,8 +44,8 @@ input ProjectInput {
 }
 
 type Query {
-  demo: String!
   projects: [Project!]!
+  project: Project!
 }
 
 input SignupInput {

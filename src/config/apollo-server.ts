@@ -6,6 +6,7 @@ export const createApolloServer = (schema: SchemaType) => {
         schema,
         context: async ({ req }) => {
             let token = req.headers.authorization;
+
             return { token, req };
         },
     });
