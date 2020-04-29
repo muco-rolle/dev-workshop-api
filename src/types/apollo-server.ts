@@ -1,7 +1,8 @@
 import { IncomingMessage, ServerResponse } from "http";
+import { ObjectId } from "./mongoose";
 
 export interface CurrentUser {
-    id: string;
+    id: ObjectId;
     username: string;
     email: string;
 }

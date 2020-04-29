@@ -42,11 +42,13 @@ type ProjectType {
   id: String!
   name: String!
   description: String
+  user: UserType!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type Query {
   projects: [ProjectType!]!
-  project: ProjectType!
 }
 
 input SignupInput {

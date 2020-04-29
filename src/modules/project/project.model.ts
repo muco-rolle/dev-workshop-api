@@ -1,5 +1,4 @@
 import { model, Document, Model, Schema, models } from "mongoose";
-import { UserModel } from "../user";
 
 const projectSchema = new Schema(
     {
@@ -13,7 +12,7 @@ const projectSchema = new Schema(
 export interface ProjectModel extends Document {
     name: string;
     description?: string;
-    user: UserModel;
+    user: Schema.Types.ObjectId;
 }
 
 export const projectModel: Model<ProjectModel> =

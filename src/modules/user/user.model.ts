@@ -19,4 +19,4 @@ export interface UserModel extends Document {
 }
 
 export const userModel: Model<UserModel> =
-    models.user || model<UserModel>("user", userSchema);
+    models.user || model<UserModel>("User", userSchema);

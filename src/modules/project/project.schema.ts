@@ -1,4 +1,6 @@
-import { ObjectType, Field, InputType } from "type-graphql";
+import { ObjectType, Field, InputType, ArgsType } from "type-graphql";
+import { ObjectId } from "@types";
+import { UserType } from "../user";
 
 @ObjectType()
 export class ProjectType {
@@ -10,6 +12,15 @@ export class ProjectType {
 
     @Field({ nullable: true })
     description?: string;
+
+    @Field()
+    user: UserType;
+
+    @Field()
+    createdAt: Date;
+
+    @Field()
+    updatedAt: Date;
 }
 
 @InputType()
@@ -19,4 +30,9 @@ export class ProjectInput {
 
     @Field({ nullable: true })
     description?: string;
+}
+
+@ArgsType()
+export class ProjectArgs {
+    projectId: ObjectId;
 }

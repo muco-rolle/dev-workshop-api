@@ -11,14 +11,18 @@ export class ProjectResolver {
 
     @AuthGuard()
     @Query(() => [ProjectType])
-    projects() {
-        return [{ id: "1", name: "Hello" }];
+    async projects() {
+        return await this.projectService.all();
     }
 
-    @Query(() => ProjectType)
-    project() {
-        return { id: 1, name: "test" };
-    }
+    // @AuthGuard()
+    // @Query(() => ProjectType)
+    // async project(
+    //     @Arg("projectId") id: ObjectId,
+    //     @GetUser() user: CurrentUser
+    // ) {
+    //     return await this.projectService.one(id, user.id);
+    // }
 
     @AuthGuard()
     @Mutation(() => ProjectType)
