@@ -3,6 +3,60 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+input ActivateAccountInput {
+  code: String!
+}
+
+type ActivateAccountType {
+  active: Boolean!
+  token: String!
+}
+
+"""
+The javascript `Date` as string. Type represents date and time as the ISO Date string.
+"""
+scalar DateTime
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type LoginType {
+  token: String!
+}
+
+type Mutation {
+  signup(user: SignupInput!): UserType!
+}
+
+type Project {
+  id: String!
+  name: String!
+  description: String
+}
+
+input ProjectInput {
+  name: String!
+  description: String
+}
+
 type Query {
   demo: String!
+  projects: [Project!]!
+}
+
+input SignupInput {
+  username: String!
+  email: String!
+  password: String!
+}
+
+type UserType {
+  id: String!
+  username: String!
+  email: String!
+  active: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
