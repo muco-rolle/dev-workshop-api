@@ -30,12 +30,7 @@ type Mutation {
   signup(user: SignupInput!): UserType!
   activateAccount(code: String!): ActivateAccountType!
   login(user: LoginInput!): LoginType!
-}
-
-type Project {
-  id: String!
-  name: String!
-  description: String
+  createProject(project: ProjectInput!): ProjectType!
 }
 
 input ProjectInput {
@@ -43,9 +38,15 @@ input ProjectInput {
   description: String
 }
 
+type ProjectType {
+  id: String!
+  name: String!
+  description: String
+}
+
 type Query {
-  projects: [Project!]!
-  project: Project!
+  projects: [ProjectType!]!
+  project: ProjectType!
 }
 
 input SignupInput {

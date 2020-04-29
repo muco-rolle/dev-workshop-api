@@ -2,8 +2,8 @@ import { model, Document, Model, Schema, models } from 'mongoose';
 
 const {{name}}Schema = new Schema({}, { timestamps: true });
 
-export interface I{{ucfirst name}} extends Document {}
+export interface {{ucfirst name}}Model extends Document {}
 
-export const {{ucfirst name}}: Model<I{{ucfirst name}}> =
-    models.{{ucfirst name}} || model<I{{ucfirst name}}>('{{ucfirst name}}',
+export const {{ name}}Model: Model<{{ucfirst name}}Model> =
+    models.{{ name}}Model || model<{{ucfirst name}}Model>('{{ucfirst name}}',
         {{name}}Schema);

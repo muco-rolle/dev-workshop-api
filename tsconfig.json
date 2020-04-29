@@ -26,6 +26,7 @@
             "@config": ["src/config/index.ts"],
             "@utils": ["src/utils/index.ts"],
             "@types": ["src/types/index.ts"],
+            "@decorators": ["src/decorators/index.ts"],
             "@middlewares": ["src/middlewares/index.ts"]
         }
     },

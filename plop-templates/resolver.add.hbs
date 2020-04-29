@@ -1,5 +1,9 @@
-export const {{name}}Resolver = {
-Query: {},
+import {Resolver} from "type-graphql"
 
-Mutation: {}
+@Resover()
+export class {{name}}Resolver {
+@Query(() => String)
+demo() {
+return "Hello demo"
+}
 };

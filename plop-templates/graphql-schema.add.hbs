@@ -1,7 +1,6 @@
-import { gql } from 'apollo-server';
+import {ObjectType} from "type-graphql"
 
-export const {{name}}GraphQLSchema = gql`
-extend type Query {}
+@ObjectType()
+export class {{ucfirst name}}Type {
 
-extend type Mutation {}
-`;
+}

@@ -1,7 +1,7 @@
 import { ObjectType, Field, InputType } from "type-graphql";
 
 @ObjectType()
-export class Project {
+export class ProjectType {
     @Field()
     id: string;
 
