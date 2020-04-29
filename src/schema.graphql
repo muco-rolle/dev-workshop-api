@@ -28,6 +28,7 @@ type LoginType {
 
 type Mutation {
   signup(user: SignupInput!): UserType!
+  activateAccount(code: String!): ActivateAccountType!
 }
 
 type Project {
