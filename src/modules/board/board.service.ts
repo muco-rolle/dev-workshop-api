@@ -21,4 +21,36 @@ export class BoardService {
 
         return savedBoard;
     }
+
+    async update(board: BoardInput, boardId: string): Promise<BoardModel> {
+        const updatedBoard = await boardModel.findOneAndUpdate(
+            { _id: boardId },
+            board,
+            { new: true }
+        );
+
+        if (!updatedBoard) {
+            throw error(
+                `Can't update a board with id: ${boardId} not found`,
+                "404"
+            );
+        }
+
+        return updatedBoard;
+    }
+
+    async delete(boardId: string): Promise<BoardModel> {
+        const deletedBoard = await boardModel.findOneAndDelete({
+            _id: boardId,
+        });
+
+        if (!deletedBoard) {
+            throw error(
+                `Can't delete a board with id: ${boardId} not found`,
+                "404"
+            );
+        }
+
+        return deletedBoard;
+    }
 }

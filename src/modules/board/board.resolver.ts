@@ -17,4 +17,17 @@ export class BoardResolver {
     ) {
         return await this.boardService.create(board, projectId);
     }
+
+    @Mutation(() => BoardType)
+    async updateBoard(
+        @Arg("board") board: BoardInput,
+        @Arg("boardId") boardId: string
+    ) {
+        return await this.boardService.update(board, boardId);
+    }
+
+    @Mutation(() => BoardType)
+    async deleteBoard(@Arg("boardId") boardId: string) {
+        return await this.boardService.delete(boardId);
+    }
 }
