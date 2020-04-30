@@ -5,8 +5,12 @@ import { projectModel, ProjectModel } from "./project.model";
 import * as mongoose from "mongoose";
 
 export class ProjectService {
-    async all(): Promise<ProjectModel[]> {
-        return await projectModel.find({ _id: "" }).populate("user").exec();
+    async all(userId?: string): Promise<ProjectModel[]> {
+        return await projectModel
+            .find({ user: userId as any })
+            .populate("user")
+            .populate("boards")
+            .exec();
     }
 
     async one(id: string, userId: string): Promise<ProjectModel> {

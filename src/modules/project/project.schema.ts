@@ -1,5 +1,6 @@
 import { ObjectType, Field, InputType, ArgsType } from "type-graphql";
 import { UserType } from "../user";
+import { BoardType } from "../board/board.schema";
 
 @ObjectType()
 export class ProjectType {
@@ -14,6 +15,9 @@ export class ProjectType {
 
     @Field()
     user: UserType;
+
+    @Field(() => [BoardType])
+    boards: BoardType[];
 
     @Field()
     createdAt: Date;

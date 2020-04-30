@@ -12,6 +12,18 @@ type ActivateAccountType {
   token: String!
 }
 
+input BoardInput {
+  title: String!
+  description: String
+}
+
+type BoardType {
+  id: String!
+  title: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
 """
 The javascript `Date` as string. Type represents date and time as the ISO Date string.
 """
@@ -30,8 +42,10 @@ type Mutation {
   signup(user: SignupInput!): UserType!
   activateAccount(code: String!): ActivateAccountType!
   login(user: LoginInput!): LoginType!
+  createBoard(projectId: String!, board: BoardInput!): BoardType!
   createProject(project: ProjectInput!): ProjectType!
   updateProject(project: ProjectInput!, projectId: String!): ProjectType!
+  deleteProject(projectId: String!): ProjectType!
 }
 
 input ProjectInput {
@@ -44,11 +58,13 @@ type ProjectType {
   name: String!
   description: String
   user: UserType!
+  boards: [BoardType!]!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
 
 type Query {
+  demo: String!
   projects: [ProjectType!]!
   project(projectId: String!): ProjectType!
 }
