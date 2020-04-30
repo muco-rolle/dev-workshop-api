@@ -49,6 +49,7 @@ type ProjectType {
 
 type Query {
   projects: [ProjectType!]!
+  project(projectId: String!): ProjectType!
 }
 
 input SignupInput {

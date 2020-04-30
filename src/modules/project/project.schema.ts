@@ -1,5 +1,4 @@
 import { ObjectType, Field, InputType, ArgsType } from "type-graphql";
-import { ObjectId } from "@types";
 import { UserType } from "../user";
 
 @ObjectType()
@@ -34,5 +33,5 @@ export class ProjectInput {
 
 @ArgsType()
 export class ProjectArgs {
-    projectId: ObjectId;
+    projectId: string;
 }

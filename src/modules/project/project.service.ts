@@ -1,16 +1,20 @@
 import { ProjectInput } from "./project.schema";
-import { CurrentUser, ObjectId } from "@types";
+import { CurrentUser } from "@types";
 import { logger, error } from "@utils";
 import { projectModel, ProjectModel } from "./project.model";
+import * as mongoose from "mongoose";
 
 export class ProjectService {
     async all(): Promise<ProjectModel[]> {
         return await projectModel.find().populate("user").exec();
     }
 
-    async one(id: ObjectId, userId: ObjectId): Promise<ProjectModel> {
+    async one(id: string, userId: string): Promise<ProjectModel> {
+        const projectId = mongoose.Types.ObjectId(id);
+
         const project = await projectModel
-            .findOne({ _id: id, user: userId })
+            .findOne({ _id: projectId, user: userId as any })
+            .populate("user")
             .exec();
 
         if (!project) {

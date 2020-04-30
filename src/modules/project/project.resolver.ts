@@ -15,6 +15,12 @@ export class ProjectResolver {
         return await this.projectService.all();
     }
 
+    @AuthGuard()
+    @Query(() => ProjectType)
+    async project(@Arg("projectId") id: string, @GetUser() user: CurrentUser) {
+        return await this.projectService.one(id, user.id);
+    }
+
     // @AuthGuard()
     // @Query(() => ProjectType)
     // async project(
