@@ -21,15 +21,6 @@ export class ProjectResolver {
         return await this.projectService.one(id, user.id);
     }
 
-    // @AuthGuard()
-    // @Query(() => ProjectType)
-    // async project(
-    //     @Arg("projectId") id: ObjectId,
-    //     @GetUser() user: CurrentUser
-    // ) {
-    //     return await this.projectService.one(id, user.id);
-    // }
-
     @AuthGuard()
     @Mutation(() => ProjectType)
     async createProject(
@@ -37,5 +28,23 @@ export class ProjectResolver {
         @GetUser() user: CurrentUser
     ) {
         return await this.projectService.create(project, user);
+    }
+
+    @AuthGuard()
+    @Mutation(() => ProjectType)
+    async updateProject(
+        @Arg("projectId") id: string,
+        @Arg("project") project: ProjectInput
+    ) {
+        return await this.projectService.update(id, project);
+    }
+
+    @AuthGuard()
+    @Mutation(() => ProjectType)
+    async deleteProject(
+        @Arg("projectId") id: string,
+        @GetUser() user: CurrentUser
+    ) {
+        return await this.projectService.delete(id, user.id);
     }
 }

@@ -31,6 +31,7 @@ type Mutation {
   activateAccount(code: String!): ActivateAccountType!
   login(user: LoginInput!): LoginType!
   createProject(project: ProjectInput!): ProjectType!
+  updateProject(project: ProjectInput!, projectId: String!): ProjectType!
 }
 
 input ProjectInput {
