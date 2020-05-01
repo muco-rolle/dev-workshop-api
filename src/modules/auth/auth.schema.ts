@@ -3,6 +3,9 @@ import { ObjectType, Field, InputType } from "type-graphql";
 @ObjectType()
 export class ActivateAccountType {
     @Field()
+    username: string;
+
+    @Field()
     active: boolean;
 
     @Field()

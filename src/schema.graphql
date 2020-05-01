@@ -8,6 +8,7 @@ input ActivateAccountInput {
 }
 
 type ActivateAccountType {
+  username: String!
   active: Boolean!
   token: String!
 }
